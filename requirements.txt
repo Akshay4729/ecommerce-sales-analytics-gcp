@@ -4,3 +4,5 @@ google-cloud-storage
 google-cloud-bigquery
 pyyaml
 python-dotenv
+kagglehub
+pytest
