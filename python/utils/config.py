@@ -38,14 +38,21 @@ def load_pipeline_config(
         staging_directory = repository_root / staging_directory
 
     return PipelineConfig(
-        project_name=values["project_name"],
+        project_name=values.get("project_name", "ecommerce-sales-analytics-gcp"),
         gcp_project_id=environment.get(
-            "GCP_PROJECT_ID", values["gcp_project_id"]
+            "GCP_PROJECT_ID",
+            values.get("gcp_project_id", "seventh-botany-506408-i1"),
         ),
-        gcs_bucket=environment.get("GCS_BUCKET", values["gcs_bucket"]),
-        gcp_region=environment.get("GCP_REGION", values["gcp_region"]),
+        gcs_bucket=environment.get(
+            "GCS_BUCKET",
+            values.get("gcs_bucket", "akshay-ecommerce-data-lake"),
+        ),
+        gcp_region=environment.get(
+            "GCP_REGION", values.get("gcp_region", "us-central1")
+        ),
         kaggle_dataset=environment.get(
-            "KAGGLE_DATASET", values["kaggle_dataset"]
+            "KAGGLE_DATASET",
+            values.get("kaggle_dataset", "olistbr/brazilian-ecommerce"),
         ),
         raw_prefix=values.get("raw_prefix", "raw").strip("/"),
         staging_directory=staging_directory,

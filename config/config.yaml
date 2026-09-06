@@ -1,2 +1,11 @@
-# Project configuration
 project_name: ecommerce-sales-analytics-gcp
+gcp_project_id: seventh-botany-506408-i1
+gcs_bucket: akshay-ecommerce-data-lake
+gcp_region: us-central1
+bigquery_datasets:
+  bronze: bronze
+  silver: silver
+  gold: gold
+kaggle_dataset: olistbr/brazilian-ecommerce
+raw_prefix: raw
+staging_directory: data/staging
