@@ -15,6 +15,7 @@ class PipelineConfig:
     kaggle_dataset: str
     raw_prefix: str
     staging_directory: Path
+    bronze_dataset: str = "bronze"
 
 
 def load_pipeline_config(
@@ -27,6 +28,8 @@ def load_pipeline_config(
 
     with path.open(encoding="utf-8") as config_file:
         values = yaml.safe_load(config_file) or {}
+
+    bigquery_datasets = values.get("bigquery_datasets", {}) or {}
 
     staging_directory = Path(
         environment.get(
@@ -56,4 +59,8 @@ def load_pipeline_config(
         ),
         raw_prefix=values.get("raw_prefix", "raw").strip("/"),
         staging_directory=staging_directory,
+        bronze_dataset=environment.get(
+            "BRONZE_DATASET",
+            bigquery_datasets.get("bronze", "bronze"),
+        ),
     )
