@@ -15,4 +15,4 @@ SELECT
 
     SAFE_CAST(review_answer_timestamp AS TIMESTAMP) AS review_answer_timestamp
 
-FROM `seventh-botany-506408-i1.bronze.reviews`;
+FROM `seventh-botany-506408-i1.bronze.order_reviews`;

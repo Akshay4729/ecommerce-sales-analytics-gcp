@@ -11,4 +11,4 @@ SELECT
 
     SAFE_CAST(payment_value AS NUMERIC) AS payment_value
 
-FROM `seventh-botany-506408-i1.bronze.payments`;
+FROM `seventh-botany-506408-i1.bronze.order_payments`;
